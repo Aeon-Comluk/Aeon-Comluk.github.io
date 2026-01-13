@@ -142,6 +142,10 @@ body {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+  .ticker-item {
+  text-decoration: none;
+  color: var(--white);
+}
 
 /* ---------- ZONE 3: APPOINTMENTS ---------- */
 .appointment-zone {
@@ -282,50 +286,70 @@ body {
 <div class="contact-ticker">
   <div class="ticker-track">
 
-    <span class="ticker-item">
-      <img src="image/mai.png" alt=""> mydomain@gmail.com
-    </span>
+    <a class="ticker-item" href="mailto:mydomain@gmail.com">
+      <img src="image/mai.png" alt="">
+      <span>mydomain@gmail.com</span>
+    </a>
+
     <span class="ticker-sep">|</span>
 
-    <span class="ticker-item">
-      <img src="image/pho.png" alt=""> 1-876-xxx-xxxx
-    </span>
+    <a class="ticker-item" href="tel:+1876xxxxxxx">
+      <img src="image/pho.png" alt="">
+      <span>1-876-xxx-xxxx</span>
+    </a>
+
     <span class="ticker-sep">|</span>
 
-    <span class="ticker-item">
-      <img src="image/wha.png" alt=""> 1-876-xxx-xxxx
-    </span>
+    <a class="ticker-item" href="https://wa.me/1876xxxxxxx" target="_blank" rel="noopener">
+      <img src="image/wha.png" alt="">
+      <span>WhatsApp</span>
+    </a>
+
     <span class="ticker-sep">|</span>
 
-    <span class="ticker-item">
-      <img src="image/loc.png" alt=""> Kingston &amp; St. Andrew
-    </span>
+    <div class="ticker-item">
+      <img src="image/loc.png" alt="">
+      <span>Kingston &amp; St. Andrew</span>
+    </div>
 
-    <!-- DUPLICATE FOR SEAMLESS LOOP -->
     <span class="ticker-spacer"></span>
-
-    <span class="ticker-item">
-      <img src="image/mai.png" alt=""> mydomain@gmail.com
-    </span>
-    <span class="ticker-sep">|</span>
-
-    <span class="ticker-item">
-      <img src="image/pho.png" alt=""> 1-876-xxx-xxxx
-    </span>
-    <span class="ticker-sep">|</span>
-
-    <span class="ticker-item">
-      <img src="image/wha.png" alt=""> 1-876-xxx-xxxx
-    </span>
-    <span class="ticker-sep">|</span>
-
-    <span class="ticker-item">
-      <img src="image/loc.png" alt=""> Kingston &amp; St. Andrew
-    </span>
 
   </div>
 </div>
+<div class="contact-ticker">
+  <div class="ticker-track">
 
+    <a class="ticker-item" href="mailto:mydomain@gmail.com">
+      <img src="image/mai.png" alt="">
+      <span>mydomain@gmail.com</span>
+    </a>
+
+    <span class="ticker-sep">|</span>
+
+    <a class="ticker-item" href="tel:+1876xxxxxxx">
+      <img src="image/pho.png" alt="">
+      <span>1-876-xxx-xxxx</span>
+    </a>
+
+    <span class="ticker-sep">|</span>
+
+    <a class="ticker-item" href="https://wa.me/1876xxxxxxx" target="_blank" rel="noopener">
+      <img src="image/wha.png" alt="">
+      <span>WhatsApp</span>
+    </a>
+
+    <span class="ticker-sep">|</span>
+
+    <div class="ticker-item">
+      <img src="image/loc.png" alt="">
+      <span>Kingston &amp; St. Andrew</span>
+    </div>
+
+    <span class="ticker-spacer"></span>
+
+  </div>
+</div>
+    
     <!-- ZONE 3 -->
     <div class="appointment-zone">
       <div class="appointments">APPOINTMENTS ONLY</div>
