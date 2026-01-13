@@ -1,307 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aeon King – Handyman</title>
 
 <style>
-/* ---------- RESET / BASE ---------- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  /* ===== Base ===== */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #efefef;
+    color: #111;
+  }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f2f2f2;
-  color: #111;
-}
+  :root{
+    --yellow: #f7b731;
+    --yellow2:#e58e26;
+    --ink: #0b0b0b;
+    --white: #ffffff;
+  }
 
-/* ---------- HERO SECTION ---------- */
-.hero {
-  background: url("image/bk1.jpg") center/cover no-repeat;
-  padding: 20px;
-  color: #fff;
-}
+  /* ===== HERO ===== */
+  .hero {
+    background: url("image/bk1.jpg") center/cover no-repeat;
+    padding: 18px 14px 22px;
+  }
 
-.hero-card {
-  background: rgba(0,0,0,0.65);
-  border-radius: 12px;
-  padding: 16px;
-}
+  .hero-card{
+    background: rgba(0,0,0,0.72);
+    border-radius: 18px;
+    padding: 16px;
+    max-width: 980px;
+    margin: 0 auto;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  }
 
-/* PROFILE */
-.profile {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-}
+  .hero-row{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
 
-.profile img {
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 4px solid #f7b731;
-}
+  .profile-wrap{
+    flex: 0 0 auto;
+  }
 
-/* INFO */
-.info h1 {
-  font-size: 26px;
-  letter-spacing: 2px;
-}
+  .profile-wrap img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid var(--yellow);
+    background: #111;
+    display: block;
+  }
 
-.info h2 {
-  font-size: 14px;
-  color: #f7b731;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
-}
+  .hero-info{
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--white);
+  }
 
-.contact {
-  margin-top: 10px;
-}
+  .name{
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 36px;
+    line-height: 1.0;
+  }
 
-.contact a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
+  .role{
+    margin-top: 6px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    font-size: 14px;
+    color: var(--yellow);
+  }
 
-.contact img {
-  width: 18px;
-  height: 18px;
-}
+  /* Contact list — NO borders/boxes */
+  .contact{
+    margin-top: 14px;
+    display: grid;
+    gap: 10px;
+    max-width: 420px;
+  }
 
-.appointment {
-  margin-top: 10px;
-  color: #f7b731;
-  font-weight: bold;
-  font-size: 13px;
-  letter-spacing: 1px;
-}
+  .c-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    line-height: 1.2;
+  }
 
-/* ---------- ABOUT SECTION ---------- */
-.about {
-  background: linear-gradient(180deg, #f7b731, #e58e26);
-  padding: 20px;
-  text-align: center;
-}
+  /* Yellow icon “dot” like your mockup */
+  .icon-dot{
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: var(--yellow);
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+  .icon-dot img{
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
 
-.about h3 {
-  font-size: 24px;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
+  .appointments{
+    margin-top: 14px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--yellow);
+    font-size: 18px;
+  }
 
-.about p {
-  font-size: 14px;
-  line-height: 1.5;
-  max-width: 600px;
-  margin: auto;
-  font-weight: bold;
-}
+  /* ===== ABOUT BAR ===== */
+  .about-bar{
+    /* Gradient like your sample */
+    background: linear-gradient(180deg, #f7b731 0%, #e58e26 100%);
+    padding: 18px 16px 20px;
+  }
 
-/* ---------- PROJECTS ---------- */
-.projects {
-  padding: 20px;
-}
+  .about-inner{
+    max-width: 980px;
+    margin: 0 auto;
+  }
 
-.projects h3 {
-  font-size: 22px;
-  letter-spacing: 2px;
-}
+  .about-title{
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #111;
+  }
 
-.divider {
-  height: 4px;
-  background: #000;
-  margin: 6px 0 20px;
-}
+  /* Left aligned text like your mock */
+  .about-text{
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 18px;
+    line-height: 1.45;
+    color: #111;
+    max-width: 920px;
+  }
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
+  /* ===== PROJECTS ===== */
+  .projects{
+    background: #fff;
+    padding: 20px 16px 26px;
+  }
 
-.project {
-  text-align: center;
-}
+  .projects-inner{
+    max-width: 980px;
+    margin: 0 auto;
+  }
 
-.project img {
-  width: 100%;
-  border-radius: 6px;
-}
+  .projects-title{
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 34px;
+    color: #111;
+  }
 
-.project span {
-  display: block;
-  margin-top: 6px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+  .divider{
+    height: 5px;
+    background: #111;
+    margin: 10px 0 18px;
+  }
 
-/* ---------- LIGHTBOX (CSS ONLY) ---------- */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
 
-.lightbox img {
-  max-width: 95%;
-  max-height: 90%;
-}
-
-.lightbox:target {
-  display: flex;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: #fff;
-  font-size: 28px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 500px) {
-  .profile {
-    flex-direction: column;
+  .project{
     text-align: center;
   }
-}
+
+  .thumb{
+    display: block;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #d9d9d9;
+  }
+
+  .thumb img{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .pname{
+    margin-top: 8px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 16px;
+  }
+
+  /* ===== CSS-only Lightbox ===== */
+  .lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 18px;
+  }
+  .lightbox:target{ display: flex; }
+
+  .lightbox img{
+    max-width: 96%;
+    max-height: 92%;
+    border-radius: 10px;
+  }
+
+  .close{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  /* ===== Mobile tuning ===== */
+  @media (max-width: 520px){
+    .name{ font-size: 30px; }
+    .profile-wrap img{ width: 130px; height: 130px; }
+    .c-row{ font-size: 16px; }
+    .about-title{ font-size: 34px; }
+    .about-text{ font-size: 16px; }
+    .projects-title{ font-size: 28px; }
+    .pname{ font-size: 14px; }
+  }
+
+  /* Very small screens: allow stacking if needed */
+  @media (max-width: 380px){
+    .hero-row{ flex-direction: column; align-items: center; text-align: center; }
+    .contact{ margin-left: auto; margin-right: auto; }
+  }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-card">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-row">
 
-    <div class="profile">
-      <img src="image/prof.png" alt="Profile">
-
-      <div class="info">
-        <h1>AEON KING</h1>
-        <h2>HANDYMAN</h2>
-
-        <div class="contact">
-          <a href="mailto:godmanstyle@gmail.com">
-            <img src="image/mai.png"> godmanstyle@gmail.com
-          </a>
-
-          <a href="tel:+18768169097">
-            <img src="image/pho.png"> 1-876-816-9097
-          </a>
-
-          <a href="https://wa.me/18763442334">
-            <img src="image/wha.png"> 1-876-344-2334
-          </a>
-
-          <a href="#">
-            <img src="image/loc.png"> Kingston &amp; St. Andrew
-          </a>
+        <div class="profile-wrap">
+          <img src="image/prof.png" alt="Profile photo">
         </div>
 
-        <div class="appointment">
-          APPOINTMENTS ONLY
+        <div class="hero-info">
+          <div class="name">AEON KING</div>
+          <div class="role">HANDYMAN</div>
+
+          <div class="contact">
+            <a class="c-row" href="mailto:godmanstyle@gmail.com">
+              <span class="icon-dot"><img src="image/mai.png" alt="Email"></span>
+              <span>godmanstyle@gmail.com</span>
+            </a>
+
+            <a class="c-row" href="tel:+18768169097">
+              <span class="icon-dot"><img src="image/pho.png" alt="Phone"></span>
+              <span>1-876-816-9097</span>
+            </a>
+
+            <a class="c-row" href="https://wa.me/18763442334" target="_blank" rel="noopener">
+              <span class="icon-dot"><img src="image/wha.png" alt="WhatsApp"></span>
+              <span>1-876-344-2334</span>
+            </a>
+
+            <div class="c-row" style="cursor: default;">
+              <span class="icon-dot"><img src="image/loc.png" alt="Location"></span>
+              <span>Kingston &amp; St. Andrew</span>
+            </div>
+          </div>
+
+          <div class="appointments">APPOINTMENTS ONLY</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-bar">
+    <div class="about-inner">
+      <div class="about-title">ABOUT ME</div>
+      <div class="about-text">
+        I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.<br>
+        EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS, AND<br>
+        GENERAL FIXES.
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects">
+    <div class="projects-inner">
+      <div class="projects-title">PAST PROJECTS</div>
+      <div class="divider"></div>
+
+      <div class="grid">
+        <div class="project">
+          <a class="thumb" href="#img1"><img src="image/sample.jpg" alt="Project 1"></a>
+          <div class="pname">PROJECT NAME</div>
+        </div>
+
+        <div class="project">
+          <a class="thumb" href="#img2"><img src="image/sample.jpg" alt="Project 2"></a>
+          <div class="pname">PROJECT NAME</div>
+        </div>
+
+        <div class="project">
+          <a class="thumb" href="#img3"><img src="image/sample.jpg" alt="Project 3"></a>
+          <div class="pname">PROJECT NAME</div>
+        </div>
+
+        <div class="project">
+          <a class="thumb" href="#img4"><img src="image/sample.jpg" alt="Project 4"></a>
+          <div class="pname">PROJECT NAME</div>
+        </div>
+
+        <div class="project">
+          <a class="thumb" href="#img5"><img src="image/sample.jpg" alt="Project 5"></a>
+          <div class="pname">PROJECT NAME</div>
+        </div>
+
+        <div class="project">
+          <a class="thumb" href="#img6"><img src="image/sample.jpg" alt="Project 6"></a>
+          <div class="pname">PROJECT NAME</div>
         </div>
       </div>
     </div>
+  </section>
 
+  <!-- LIGHTBOXES -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="close">×</a>
+    <img src="image/sample.jpg" alt="Project 1 large">
   </div>
-</section>
 
-<!-- ABOUT -->
-<section class="about">
-  <h3>ABOUT ME</h3>
-  <p>
-    I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.
-    EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS,
-    AND GENERAL FIXES.
-  </p>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects">
-  <h3>PAST PROJECTS</h3>
-  <div class="divider"></div>
-
-  <div class="grid">
-    <!-- 6 PROJECTS -->
-    <div class="project">
-      <a href="#img1"><img src="image/sample.jpg"></a>
-      <span>PROJECT NAME</span>
-    </div>
-    <div class="project">
-      <a href="#img2"><img src="image/sample.jpg"></a>
-      <span>PROJECT NAME</span>
-    </div>
-    <div class="project">
-      <a href="#img3"><img src="image/sample.jpg"></a>
-      <span>PROJECT NAME</span>
-    </div>
-    <div class="project">
-      <a href="#img4"><img src="image/sample.jpg"></a>
-      <span>PROJECT NAME</span>
-    </div>
-    <div class="project">
-      <a href="#img5"><img src="image/sample.jpg"></a>
-      <span>PROJECT NAME</span>
-    </div>
-    <div class="project">
-      <a href="#img6"><img src="image/sample.jpg"></a>
-      <span>PROJECT NAME</span>
-    </div>
+  <div id="img2" class="lightbox">
+    <a href="#" class="close">×</a>
+    <img src="image/sample.jpg" alt="Project 2 large">
   </div>
-</section>
 
-<!-- LIGHTBOXES -->
-<div id="img1" class="lightbox">
-  <a href="#" class="close">×</a>
-  <img src="image/sample.jpg">
-</div>
+  <div id="img3" class="lightbox">
+    <a href="#" class="close">×</a>
+    <img src="image/sample.jpg" alt="Project 3 large">
+  </div>
 
-<div id="img2" class="lightbox">
-  <a href="#" class="close">×</a>
-  <img src="image/sample.jpg">
-</div>
+  <div id="img4" class="lightbox">
+    <a href="#" class="close">×</a>
+    <img src="image/sample.jpg" alt="Project 4 large">
+  </div>
 
-<div id="img3" class="lightbox">
-  <a href="#" class="close">×</a>
-  <img src="image/sample.jpg">
-</div>
+  <div id="img5" class="lightbox">
+    <a href="#" class="close">×</a>
+    <img src="image/sample.jpg" alt="Project 5 large">
+  </div>
 
-<div id="img4" class="lightbox">
-  <a href="#" class="close">×</a>
-  <img src="image/sample.jpg">
-</div>
-
-<div id="img5" class="lightbox">
-  <a href="#" class="close">×</a>
-  <img src="image/sample.jpg">
-</div>
-
-<div id="img6" class="lightbox">
-  <a href="#" class="close">×</a>
-  <img src="image/sample.jpg">
-</div>
+  <div id="img6" class="lightbox">
+    <a href="#" class="close">×</a>
+    <img src="image/sample.jpg" alt="Project 6 large">
+  </div>
 
 </body>
 </html>
