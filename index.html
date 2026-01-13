@@ -98,7 +98,7 @@ body {
   margin-top: 14px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
+  column-gap: 32px; /* extra breathing room */
 }
 
 .contact-col {
@@ -106,11 +106,17 @@ body {
   row-gap: 8px;
 }
 
+/* LEFT COLUMN: text → icon */
 .contact-left {
   justify-items: end;
   text-align: right;
 }
 
+.contact-left .c-row {
+  flex-direction: row-reverse;
+}
+
+/* RIGHT COLUMN: icon → text */
 .contact-right {
   justify-items: start;
   text-align: left;
@@ -124,11 +130,20 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-family: TEX;
+  white-space: nowrap;      /* PREVENT WRAPPING */
+  max-width: 100%;
+}
+
+.c-row span {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* safety, no visual break */
 }
 
 .c-row img {
   width: 18px;
   height: 18px;
+  flex: 0 0 auto;
 }
 
 /* ---------- ZONE 3: APPOINTMENTS ---------- */
@@ -170,7 +185,6 @@ body {
   font-family: TEX;
   font-size: 14px;
   line-height: 1.45;
-  max-width: 100%;
 }
 
 /* ===== PROJECTS ===== */
@@ -276,19 +290,23 @@ body {
     <div class="contact-zone">
       <div class="contact-col contact-left">
         <a class="c-row" href="mailto:mydomain@gmail.com">
-          <img src="image/mai.png"><span>mydomain@gmail.com</span>
+          <span>mydomain@gmail.com</span>
+          <img src="image/mai.png" alt="">
         </a>
         <a class="c-row" href="tel:+1876xxxxxxx">
-          <img src="image/pho.png"><span>1-876-xxx-xxxx</span>
+          <span>1-876-xxx-xxxx</span>
+          <img src="image/pho.png" alt="">
         </a>
       </div>
 
       <div class="contact-col contact-right">
         <a class="c-row" href="https://wa.me/1876xxxxxxx">
-          <img src="image/wha.png"><span>1-876-xxx-xxxx</span>
+          <img src="image/wha.png" alt="">
+          <span>1-876-xxx-xxxx</span>
         </a>
         <div class="c-row">
-          <img src="image/loc.png"><span>Kingston &amp; St. Andrew</span>
+          <img src="image/loc.png" alt="">
+          <span>Kingston &amp; St. Andrew</span>
         </div>
       </div>
     </div>
