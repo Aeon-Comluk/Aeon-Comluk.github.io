@@ -75,11 +75,11 @@ body {
 }
 
 .identity-info {
-  color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-left: 8px;
+  padding-left: 10px;
+  color: var(--white);
 }
 
 .name {
@@ -129,22 +129,20 @@ body {
   color: var(--white);
   text-decoration: none;
   font-family: TEX;
-  font-size: clamp(13px, 3.2vw, 15px);
+  font-size: clamp(12px, 3vw, 15px);
 }
 
-/* LEFT: text → icon (STRUCTURAL) */
 .contact-left .c-row {
   flex-direction: row;
 }
 
-/* RIGHT: icon → text */
 .contact-right .c-row {
   flex-direction: row;
 }
 
 .c-row span {
-  min-width: 0;
   flex: 1 1 auto;
+  min-width: 0;
   white-space: nowrap;
 }
 
@@ -274,6 +272,86 @@ body {
 </head>
 
 <body>
-<!-- BODY CONTENT UNCHANGED -->
+
+<section class="hero">
+  <div class="hero-card">
+
+    <!-- ZONE 1 -->
+    <div class="identity">
+      <div class="profile-wrap">
+        <img src="image/prof.png" alt="Profile">
+      </div>
+      <div class="identity-info">
+        <div class="name">AEON KING</div>
+        <div class="role">HANDYMAN</div>
+      </div>
+    </div>
+
+    <!-- ZONE 2 -->
+    <div class="contact-zone">
+      <div class="contact-col contact-left">
+        <a class="c-row" href="mailto:mydomain@gmail.com">
+          <span>mydomain@gmail.com</span>
+          <img src="image/mai.png" alt="">
+        </a>
+        <a class="c-row" href="tel:+1876xxxxxxx">
+          <span>1-876-xxx-xxxx</span>
+          <img src="image/pho.png" alt="">
+        </a>
+      </div>
+
+      <div class="contact-col contact-right">
+        <a class="c-row" href="https://wa.me/1876xxxxxxx">
+          <img src="image/wha.png" alt="">
+          <span>1-876-xxx-xxxx</span>
+        </a>
+        <div class="c-row">
+          <img src="image/loc.png" alt="">
+          <span>Kingston &amp; St. Andrew</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ZONE 3 -->
+    <div class="appointment-zone">
+      <div class="appointments">APPOINTMENTS ONLY</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="about-bar">
+  <div class="about-inner">
+    <div class="about-title">ABOUT ME</div>
+    <div class="about-text">
+      I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES. EXPERIENCED WITH
+      FURNITURE, INSTALLATIONS, MODULAR SYSTEMS, AND GENERAL FIXES.
+    </div>
+  </div>
+</section>
+
+<section class="projects">
+  <div class="projects-inner">
+    <div class="projects-title">PAST PROJECTS</div>
+    <div class="divider"></div>
+
+    <div class="grid">
+      <div class="project"><a class="thumb" href="#img1"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
+      <div class="project"><a class="thumb" href="#img2"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
+      <div class="project"><a class="thumb" href="#img3"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
+      <div class="project"><a class="thumb" href="#img4"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
+      <div class="project"><a class="thumb" href="#img5"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
+      <div class="project"><a class="thumb" href="#img6"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
+    </div>
+  </div>
+</section>
+
+<div id="img1" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
+<div id="img2" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
+<div id="img3" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
+<div id="img4" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
+<div id="img5" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
+<div id="img6" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
+
 </body>
 </html>
