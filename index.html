@@ -97,62 +97,50 @@ body {
   color: var(--yellow);
 }
 
-/* ---------- ZONE 2: CONTACT ---------- */
-.contact-zone {
+/* ===== CONTACT TICKER ===== */
+.contact-ticker {
   margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  background: rgba(247,183,49,0.85);
-  outline: 2px solid #111
+  overflow: hidden;
+  width: 100%;
 }
 
-.contact-col {
-  min-width: 0;
-  display: grid;
-  row-gap: 8px;
-}
-
-.contact-left {
-  justify-items: end;
-  text-align: right;
-}
-
-.contact-right {
-  justify-items: start;
-  text-align: left;
-}
-
-.c-row {
-  display: flex;
+.ticker-track {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  max-width: 100%;
-  color: var(--white);
-  text-decoration: none;
-  font-family: TEX;
-  font-size: clamp(5px, 3vw, 15px);
-  line-height:1.1;
-}
-
-.contact-left .c-row {
-  flex-direction: row;
-}
-
-.contact-right .c-row {
-  flex-direction: row;
-}
-
-.c-row span {
-  flex: 1 1 auto;
-  min-width: 0;
   white-space: nowrap;
+  gap: 14px;
+  animation: ticker-scroll 18s linear infinite;
 }
 
-.c-row img {
-  width: 18px;
-  height: 18px;
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: TEX;
+  font-size: 13px;
+  color: var(--white);
+}
+
+.ticker-item img {
+  width: 16px;
+  height: 16px;
   flex: 0 0 auto;
+}
+
+.ticker-sep {
+  font-family: TEX;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+.ticker-spacer {
+  width: 40px;
+  flex: 0 0 auto;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ---------- ZONE 3: APPOINTMENTS ---------- */
@@ -290,30 +278,53 @@ body {
       </div>
     </div>
 
-    <!-- ZONE 2 -->
-    <div class="contact-zone">
-      <div class="contact-col contact-left">
-        <a class="c-row" href="mailto:mydomain@gmail.com">
-          <span>mydomain@gmail.com</span>
-          <img src="image/mai.png" alt="">
-        </a>
-        <a class="c-row" href="tel:+1876xxxxxxx">
-          <span>1-876-xxx-xxxx</span>
-          <img src="image/pho.png" alt="">
-        </a>
-      </div>
+    <!-- ZONE 2: CONTACT TICKER -->
+<div class="contact-ticker">
+  <div class="ticker-track">
 
-      <div class="contact-col contact-right">
-        <a class="c-row" href="https://wa.me/1876xxxxxxx">
-          <img src="image/wha.png" alt="">
-          <span>1-876-xxx-xxxx</span>
-        </a>
-        <div class="c-row">
-          <img src="image/loc.png" alt="">
-          <span>Kingston &amp; St. Andrew</span>
-        </div>
-      </div>
-    </div>
+    <span class="ticker-item">
+      <img src="image/mai.png" alt=""> mydomain@gmail.com
+    </span>
+    <span class="ticker-sep">|</span>
+
+    <span class="ticker-item">
+      <img src="image/pho.png" alt=""> 1-876-xxx-xxxx
+    </span>
+    <span class="ticker-sep">|</span>
+
+    <span class="ticker-item">
+      <img src="image/wha.png" alt=""> 1-876-xxx-xxxx
+    </span>
+    <span class="ticker-sep">|</span>
+
+    <span class="ticker-item">
+      <img src="image/loc.png" alt=""> Kingston &amp; St. Andrew
+    </span>
+
+    <!-- DUPLICATE FOR SEAMLESS LOOP -->
+    <span class="ticker-spacer"></span>
+
+    <span class="ticker-item">
+      <img src="image/mai.png" alt=""> mydomain@gmail.com
+    </span>
+    <span class="ticker-sep">|</span>
+
+    <span class="ticker-item">
+      <img src="image/pho.png" alt=""> 1-876-xxx-xxxx
+    </span>
+    <span class="ticker-sep">|</span>
+
+    <span class="ticker-item">
+      <img src="image/wha.png" alt=""> 1-876-xxx-xxxx
+    </span>
+    <span class="ticker-sep">|</span>
+
+    <span class="ticker-item">
+      <img src="image/loc.png" alt=""> Kingston &amp; St. Andrew
+    </span>
+
+  </div>
+</div>
 
     <!-- ZONE 3 -->
     <div class="appointment-zone">
