@@ -6,6 +6,21 @@
 <title>Aeon King – Handyman</title>
 
 <style>
+/* ===== FONTS ===== */
+@font-face {
+  font-family: 'HED';
+  src: url('hed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TEX';
+  src: url('tex.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ===== RESET ===== */
 * {
   box-sizing: border-box;
@@ -14,7 +29,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: TEX, Arial, Helvetica, sans-serif;
   background: #efefef;
   color: #111;
 }
@@ -33,22 +48,28 @@ body {
 }
 
 .hero-card {
-  background: rgba(0,0,0,0.35); /* VERY light overlay */
+  background: rgba(0,0,0,0.32);
   border-radius: 16px;
   padding: 16px;
   max-width: 980px;
   margin: 0 auto;
 }
 
-/* FORCE LEFT → RIGHT ALWAYS */
+/* LEFT → RIGHT ALWAYS */
 .hero-row {
   display: grid;
   grid-template-columns: 30% 70%;
   gap: 16px;
-  align-items: center;
+  align-items: start;
 }
 
-/* PROFILE IMAGE */
+/* PROFILE */
+.profile-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
 .profile-wrap img {
   width: 100%;
   max-width: 160px;
@@ -66,6 +87,7 @@ body {
 }
 
 .name {
+  font-family: HED, Arial, sans-serif;
   font-size: 34px;
   font-weight: 900;
   letter-spacing: 3px;
@@ -74,13 +96,13 @@ body {
 
 .role {
   margin-top: 6px;
+  font-family: TEX, Arial, sans-serif;
   font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: var(--yellow);
 }
 
-/* CONTACT LIST — ICONS AS-IS */
+/* CONTACT */
 .contact {
   margin-top: 14px;
   display: grid;
@@ -94,6 +116,7 @@ body {
   color: var(--white);
   text-decoration: none;
   font-size: 16px;
+  font-family: TEX, Arial, sans-serif;
 }
 
 .c-row img {
@@ -102,17 +125,27 @@ body {
   display: block;
 }
 
+/* APPOINTMENTS — OWN CONTAINER */
+.appointment-wrap {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+}
+
 .appointments {
-  margin-top: 14px;
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 2px;
+  font-family: HED, Arial, sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
   color: var(--yellow);
 }
 
 /* ===== ABOUT ===== */
 .about-bar {
-  background: linear-gradient(180deg, var(--yellow) 100%, var(--yellow-dark) 10%);
+  background: linear-gradient(
+    180deg,
+    var(--yellow-dark) 0%,
+    var(--yellow) 100%
+  );
   padding: 18px 16px;
 }
 
@@ -122,16 +155,17 @@ body {
 }
 
 .about-title {
+  font-family: HED, Arial, sans-serif;
   font-size: 34px;
-  font-weight: 900;
   letter-spacing: 2px;
   margin-bottom: 8px;
   text-align: left;
 }
 
 .about-text {
-  font-size: 17px;
-  font-weight: 700;
+  font-family: TEX, Arial, sans-serif;
+  font-size: 14px; /* ~20% smaller */
+  font-weight: 600;
   line-height: 1.45;
   text-align: left;
   max-width: 100%;
@@ -149,9 +183,9 @@ body {
 }
 
 .projects-title {
+  font-family: HED, Arial, sans-serif;
   font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 1px; /* tightened for mobile */
+  letter-spacing: 1px;
 }
 
 .divider {
@@ -184,8 +218,8 @@ body {
 
 .pname {
   margin-top: 8px;
+  font-family: TEX, Arial, sans-serif;
   font-size: 14px;
-  font-weight: 900;
   letter-spacing: 1px;
 }
 
@@ -219,6 +253,7 @@ body {
   font-size: 30px;
   font-weight: 900;
   text-decoration: none;
+  font-family: HED, Arial, sans-serif;
 }
 
 /* ===== SMALL SCREENS ===== */
@@ -246,31 +281,33 @@ body {
         <div class="role">HANDYMAN</div>
 
         <div class="contact">
-          <a class="c-row" href="mailto:godmanstyle@gmail.com">
-            <img src="image/mai.png" alt="Email">
+          <a class="c-row" href="mailto:mydomain@gmail.com">
+            <img src="image/mai.png" alt="">
             <span>mydomain@gmail.com</span>
           </a>
 
           <a class="c-row" href="tel:+1876xxxxxxx">
-            <img src="image/pho.png" alt="Phone">
+            <img src="image/pho.png" alt="">
             <span>1-876-xxx-xxxx</span>
           </a>
 
           <a class="c-row" href="https://wa.me/1876xxxxxxx" target="_blank" rel="noopener">
-            <img src="image/wha.png" alt="WhatsApp">
+            <img src="image/wha.png" alt="">
             <span>1-876-xxx-xxxx</span>
           </a>
 
           <div class="c-row">
-            <img src="image/loc.png" alt="Location">
+            <img src="image/loc.png" alt="">
             <span>Kingston &amp; St. Andrew</span>
           </div>
         </div>
-
-        <div class="appointments">APPOINTMENTS ONLY</div>
       </div>
-
     </div>
+
+    <div class="appointment-wrap">
+      <div class="appointments">APPOINTMENTS ONLY</div>
+    </div>
+
   </div>
 </section>
 
