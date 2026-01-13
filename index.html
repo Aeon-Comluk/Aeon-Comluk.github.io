@@ -51,23 +51,23 @@ body {
   margin: 0 auto;
 }
 
-/* ---------- ZONE 1: IDENTITY ---------- */
+/* ---------- ZONE 1: IDENTITY (STACKED) ---------- */
 .identity {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  gap: 16px;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
 }
 
 .profile-wrap {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .profile-wrap img {
-  width: 100%;
-  max-width: 160px;
+  width: 160px;
+  max-width: 60vw;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 10px;
@@ -75,10 +75,6 @@ body {
 }
 
 .identity-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-left: 10px;
   color: var(--white);
 }
 
@@ -87,14 +83,11 @@ body {
   font-size: clamp(22px, 6vw, 34px);
   letter-spacing: 3px;
   line-height: 1.05;
-
-  max-width: 100%;
   word-break: break-word;
-  overflow-wrap: anywhere;
 }
 
 .role {
-  margin-top: 6px;
+  margin-top: 4px;
   font-family: TEX;
   font-size: 14px;
   letter-spacing: 3px;
@@ -276,15 +269,16 @@ body {
   <div class="hero-card">
 
     <!-- ZONE 1 -->
-    <div class="identity">
-      <div class="profile-wrap">
-        <img src="image/prof.png" alt="Profile">
-      </div>
-      <div class="identity-info">
-        <div class="name">MONIQUE LATTIBUDIERE</div>
-        <div class="role">HANDYMAN</div>
-      </div>
-    </div>
+   <div class="identity">
+  <div class="profile-wrap">
+    <img src="image/prof.png" alt="Profile">
+  </div>
+
+  <div class="identity-info">
+    <div class="name">AEON KING</div>
+    <div class="role">HANDYMAN</div>
+  </div>
+</div>
 
     <!-- ZONE 2: CONTACT TICKER -->
 <div class="contact-ticker">
