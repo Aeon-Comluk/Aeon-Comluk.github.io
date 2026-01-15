@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" style="--color-base: #2cc95e;"><head>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aeon King – Handyman</title>
@@ -9,28 +10,51 @@
    DESIGN VARIABLES (BUILDER TARGETS)
    ====================================================== */
 :root {
+  /* Core colors */
   --color-base: #f7b731;
   --color-bg-top: #ffffff;
   --color-text: #111;
+
+  /* Typography */
   --font-head: 'HED';
   --font-body: 'TEX';
+
+  /* Spacing & sizing */
   --card-radius: 18px;
   --icon-radius: 50%;
   --shadow-soft: 0 10px 24px rgba(0,0,0,0.08);
+
+  /* Gradient control */
   --gradient-top-stop: 20%;
 }
 
-/* FONTS */
-@font-face { font-family: 'HED'; src: url('image/hed.ttf'); }
-@font-face { font-family: 'TEX'; src: url('image/tex.otf'); }
+/* ======================================================
+   FONTS
+   ====================================================== */
+@font-face {
+  font-family: 'HED';
+  src: url('image/hed.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'TEX';
+  src: url('image/tex.otf') format('opentype');
+}
 
-/* RESET */
-* { box-sizing: border-box; margin:0; padding:0; }
+/* ======================================================
+   RESET
+   ====================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* PAGE */
+/* ======================================================
+   PAGE BACKGROUND
+   ====================================================== */
 body {
   font-family: var(--font-body), Arial, sans-serif;
-  min-height:100vh;
+  min-height: 100vh;
   background: linear-gradient(
     180deg,
     var(--color-bg-top) 0%,
@@ -40,104 +64,363 @@ body {
   color: var(--color-text);
 }
 
-.page { max-width:420px; margin:0 auto; padding:16px; }
+/* ======================================================
+   PAGE WRAPPER
+   ====================================================== */
+.page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ======================================================
+   CARD BASE STYLE
+   ====================================================== */
 .card {
   background: rgba(255,255,255,0.95);
   border-radius: var(--card-radius);
-  padding:16px;
-  margin-bottom:16px;
+  padding: 16px;
+  margin-bottom: 16px;
   box-shadow: var(--shadow-soft);
 }
 
-.hero-image { padding:0; position:relative; overflow:hidden; }
-.hero-image img { width:100%; aspect-ratio:1/1; object-fit:cover; }
+/* ======================================================
+   HERO IMAGE + SOCIAL OVERLAY
+   ====================================================== */
+.hero-image {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
 
-.social-row { position:absolute; bottom:10px; right:10px; display:flex; gap:8px; }
-.social-link { display:none; }
-.social-link:not([href=""]) { display:inline-flex; }
+.hero-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.social-row {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.social-link {
+  display: none;
+}
+
+.social-link:not([href=""]) {
+  display: inline-flex;
+}
+
 .social-dot {
-  width:36px; height:36px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--icon-radius);
   background: var(--color-base);
-  display:flex; align-items:center; justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.social-dot img { width:18px; height:18px; }
 
-.identity { text-align:center; }
-.name { font-family:var(--font-head); font-size:34px; }
-.title { font-size:15px; letter-spacing:2px; opacity:.85; }
+.social-dot img {
+  width: 18px;
+  height: 18px;
+}
 
-.section-title { font-family:var(--font-head); font-size:22px; margin-bottom:8px; }
-.about-text { font-size:14px; line-height:1.5; }
+/* ======================================================
+   NAME + TITLE
+   ====================================================== */
+.identity {
+  text-align: center;
+}
 
-.contact-list { display:grid; row-gap:10px; }
-.contact-item { display:flex; gap:10px; text-decoration:none; color:var(--color-text); }
+.name {
+  font-family: var(--font-head);
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+/* ======================================================
+   SECTION TITLES
+   ====================================================== */
+.section-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+/* ======================================================
+   ABOUT
+   ====================================================== */
+.about-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ======================================================
+   CONTACT
+   ====================================================== */
+.contact-list {
+  display: grid;
+  row-gap: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 15px;
+}
+
 .contact-icon {
-  width:32px; height:32px;
-  border-radius:var(--icon-radius);
-  background:var(--color-base);
-  display:flex; align-items:center; justify-content:center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--icon-radius);
+  background: var(--color-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
+.contact-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+/* ======================================================
+   SKILLS
+   ====================================================== */
 .skill-card {
   background: color-mix(in srgb, var(--color-base) 15%, transparent);
-  border-radius:14px;
-  padding:14px;
-  margin-bottom:12px;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
 }
-.skill-title { font-family:var(--font-head); font-size:18px; }
 
-.work-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
-.work-item { display:none; }
-.work-item:not([href=""]) { display:block; }
-.no-work-text { opacity:.75; }
+.skill-title {
+  font-family: var(--font-head);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
 
-.footer { text-align:center; font-size:12px; opacity:.85; margin-top:24px; }
-.footer a { display:block; font-family:var(--font-head); color:var(--color-text); }
+.skill-text {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ======================================================
+   PAST WORK (TEXT FALLBACK)
+   ====================================================== */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.work-item {
+  display: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.work-item:not([href=""]) {
+  display: block;
+}
+
+.work-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.no-work-text {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+.past-work:has(.work-item:not([href=""])) .no-work-text {
+  display: none;
+}
+
+/* ======================================================
+   LIGHTBOX
+   ====================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 96%;
+  max-height: 92%;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--font-head);
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ======================================================
+   FOOTER
+   ====================================================== */
+.footer {
+  margin-top: 24px;
+  padding: 16px 0 6px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.footer a {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--color-text);
+  margin-top: 4px;
+}
 </style>
 </head>
 
 <body>
+
 <div class="page">
 
-<div class="card hero-image">
-<img src="image/prof.png">
-<div class="social-row">
-<a class="social-link" href="H"><div class="social-dot"><img src="image/web2.png"></div></a>
-<a class="social-link" href=""><div class="social-dot"><img src="image/ig2.png"></div></a>
-<a class="social-link" href=""><div class="social-dot"><img src="image/in2.png"></div></a>
-<a class="social-link" href="H"><div class="social-dot"><img src="image/fb2.png"></div></a>
+  <!-- HERO IMAGE -->
+  <div class="card hero-image">
+    <img src="image/prof.png" alt="Profile">
+    <div class="social-row">
+      <a class="social-link" href="a">
+        <div class="social-dot"><img src="image/web2.png"></div>
+      </a>
+      <a class="social-link" href="a">
+        <div class="social-dot"><img src="image/ig2.png"></div>
+      </a>
+      <a class="social-link" href="">
+        <div class="social-dot"><img src="image/in2.png"></div>
+      </a>
+      <a class="social-link" href="a">
+        <div class="social-dot"><img src="image/fb2.png"></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- NAME + TITLE -->
+  <div class="card identity">
+    <div class="name">AEON KING</div>
+    <div class="title">HANDYMAN</div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="card">
+    <div class="section-title">About Me</div>
+    <div class="about-text">
+      I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.
+      EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS,
+      AND GENERAL FIXES.
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card">
+    <div class="section-title">Contact</div>
+    <div class="contact-list">
+      <a class="contact-item" href="tel:+18760000000">
+        <div class="contact-icon"><img src="image/pho2.png"></div>
+        <span>1-876-000-0000</span>
+      </a>
+      <a class="contact-item" href="mailto:mydomain@gmail.com">
+        <div class="contact-icon"><img src="image/mai2.png"></div>
+        <span>mydomain@gmail.com</span>
+      </a>
+      <a class="contact-item" href="https://wa.me/18760000000">
+        <div class="contact-icon"><img src="image/wha2.png"></div>
+        <span>WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="card">
+    <div class="section-title">Skill Areas</div>
+
+    <div class="skill-card">
+      <div class="skill-title">Modular System Setup</div>
+      <div class="skill-text">Assembly and installation of modular furniture.</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-title">Furniture Repair</div>
+      <div class="skill-text">Structural repairs and restoration.</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-title">Installations</div>
+      <div class="skill-text">Wall mounts, fixtures, and fittings.</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-title">General Maintenance</div>
+      <div class="skill-text">Minor repairs and preventative maintenance.</div>
+    </div>
+  </div>
+
+  <!-- PAST WORK -->
+  <div class="card past-work">
+    <div class="section-title">Past Work</div>
+
+    <div class="no-work-text">
+      No images available.
+    </div>
+
+    <div class="work-grid">
+      <a class="work-item" href="">
+        <img src="">
+      </a>
+      <a class="work-item" href="">
+        <img src="">
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    Created by <strong>Comluk Solutions</strong>
+    <a href="#">Get your own page</a>
+  </footer>
+
 </div>
-</div>
 
-<div class="card identity">
-<div class="name">An Marie Hencelwood</div>
-<div class="title">Accountant</div>
-</div>
-
-<div class="card">
-<div class="section-title">About Me</div>
-<div class="about-text">Hshbxk x</div>
-</div>
-
-<div class="card">
-<div class="section-title">Contact</div>
-<div class="contact-list">Hsbbs<br>Bxb d<br>Bdjb</div>
-</div>
-
-<div class="card"><div class="section-title">Skill Areas</div><div class="skill-card"><div class="skill-title">Had</div><div class="skill-text">Hdbbdj</div></div><div class="skill-card"><div class="skill-title">Uhdbd</div><div class="skill-text">Husband did</div></div></div>
-
-<div class="card past-work">
-<div class="section-title">Past Work</div>
-<div class="no-work-text">No images available.</div>
-<div class="work-grid"></div>
-</div>
-
-<footer class="footer">
-Created by <strong>Comluk Solutions</strong>
-<a href="#">Get your own page</a>
-</footer>
-
-</div>
-
-</body></html>
+</body>
+</html>
