@@ -6,17 +6,39 @@
 <title>Aeon King – Handyman</title>
 
 <style>
-/* ===== FONTS ===== */
+/* ======================================================
+   FONT FILES (DO NOT RENAME – USED GLOBALLY)
+   ====================================================== */
 @font-face {
   font-family: 'HED';
   src: url('image/hed.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'TEX';
   src: url('image/tex.otf') format('opentype');
 }
 
-/* ===== RESET ===== */
+/* ======================================================
+   CLIENT THEME CONFIG (SAFE TO EDIT)
+   ====================================================== */
+:root {
+  --bg-top-stop: 20%;      /* % white at top */
+  --bg-bottom-start: 80%;  /* orange dominance */
+
+  --accent-orange: #f7b731;
+  --accent-orange-dark: #e58e26;
+
+  --card-bg-strong: rgba(247,183,49,0.90);
+  --card-bg-soft: rgba(247,183,49,0.75);
+
+  --text-dark: #111;
+  --text-light: #ffffff;
+}
+
+/* ======================================================
+   RESET
+   ====================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,129 +46,139 @@
 }
 
 body {
-  font-family: TEX, Arial, sans-serif;
-  min-height: 100vh;
+  font-family: TEX, Arial, Helvetica, sans-serif;
   background: linear-gradient(
     180deg,
     #ffffff 0%,
-    #ffffff 40%,
-    #f7b731 100%
+    #ffffff var(--bg-top-stop),
+    var(--accent-orange) var(--bg-bottom-start)
   );
-  color: #111;
+  color: var(--text-dark);
 }
 
-/* ===== PAGE WRAPPER ===== */
+/* ======================================================
+   PAGE WRAPPER
+   ====================================================== */
 .page {
   max-width: 420px;
   margin: 0 auto;
-  padding: 16px;
+  padding-bottom: 40px;
 }
 
-/* ===== CARDS ===== */
-.card {
-  background: rgba(255,255,255,0.95);
-  border-radius: 18px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-}
-
-/* ===== HERO IMAGE ===== */
+/* ======================================================
+   HERO / PROFILE IMAGE
+   ====================================================== */
 .hero-image {
-  padding: 0;
-  overflow: hidden;
-}
-
-.hero-image img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
-  display: block;
+  background: url("image/prof.png") center / cover no-repeat;
 }
 
-/* ===== SOCIAL PLACEHOLDERS ===== */
+/* ======================================================
+   NAME + TITLE
+   ====================================================== */
+.identity {
+  padding: 16px;
+}
+
+.identity .name {
+  font-family: HED;
+  font-size: 38px;
+  line-height: 1.05;
+}
+
+.identity .role {
+  margin-top: 4px;
+  font-family: TEX;
+  font-size: 15px;
+  color: #444;
+}
+
+/* ======================================================
+   SOCIAL MEDIA ICON ROW (OPTIONAL)
+   Icons only show if href IS NOT EMPTY
+   ====================================================== */
 .social-row {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
-  padding: 10px 12px;
+  padding: 12px 16px;
+}
+
+/* hide all by default */
+.social-link {
+  display: none;
+}
+
+/* show only when href has content */
+.social-link:not([href=""]) {
+  display: inline-flex;
 }
 
 .social-dot {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  background: #111;
-  opacity: 0.85;
+  background: #000;
+  opacity: 0.75;
 }
 
-/* ===== NAME + TITLE ===== */
-.identity {
-  text-align: center;
+/* ======================================================
+   CARD BASE STYLE
+   ====================================================== */
+.card {
+  margin: 14px 16px;
+  padding: 14px;
+  border-radius: 14px;
+  color: var(--text-light);
 }
 
-.name {
-  font-family: HED;
-  font-size: 34px;
-  margin-bottom: 4px;
-}
-
-.title {
-  font-family: TEX;
-  font-size: 15px;
-  letter-spacing: 2px;
-  opacity: 0.85;
-}
-
-/* ===== ABOUT ===== */
-.section-title {
+.card strong {
   font-family: HED;
   font-size: 22px;
-  margin-bottom: 8px;
-}
-
-.about-text {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* ===== CONTACT ===== */
-.contact-list {
-  display: grid;
-  row-gap: 10px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: #111;
-  font-size: 15px;
-}
-
-.contact-item img {
-  width: 18px;
-  height: 18px;
-}
-
-/* ===== SKILLS ===== */
-.skill-card {
-  background: rgba(247,183,49,0.15);
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 12px;
-}
-
-.skill-title {
-  font-family: HED;
-  font-size: 18px;
+  display: block;
   margin-bottom: 6px;
 }
 
-.skill-text {
-  font-size: 14px;
-  line-height: 1.4;
+/* ======================================================
+   ABOUT CARD
+   ====================================================== */
+.card-about {
+  background: #2f6666;
+}
+
+/* ======================================================
+   CONTACT CARD
+   ====================================================== */
+.card-contact {
+  background: #5f9ea0;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+/* ======================================================
+   SKILLS SECTION
+   ====================================================== */
+.skills-title {
+  font-family: HED;
+  font-size: 28px;
+  text-align: center;
+  margin: 26px 0 10px;
+  color: #fff;
+}
+
+.skill-card {
+  background: var(--card-bg-soft);
+  color: #000;
+}
+
+.skill-card strong {
+  color: #000;
 }
 </style>
 </head>
@@ -155,91 +187,82 @@ body {
 
 <div class="page">
 
-  <!-- HERO IMAGE -->
-  <div class="card hero-image">
-    <img src="image/prof.png" alt="Profile">
-  </div>
+  <!-- ============================= -->
+  <!-- HERO IMAGE (PROFILE PHOTO) -->
+  <!-- ============================= -->
+  <div class="hero-image"></div>
 
-  <!-- SOCIAL PLACEHOLDERS -->
-  <div class="social-row">
-    <div class="social-dot"></div>
-    <div class="social-dot"></div>
-    <div class="social-dot"></div>
-  </div>
-
+  <!-- ============================= -->
   <!-- NAME + TITLE -->
-  <div class="card identity">
-    <div class="name">AEON KING</div>
-    <div class="title">HANDYMAN</div>
+  <!-- ============================= -->
+  <div class="identity">
+    <div class="name">Aeon King</div>
+    <div class="role">Handyman</div>
   </div>
 
-  <!-- ABOUT -->
-  <div class="card">
-    <div class="section-title">About Me</div>
-    <div class="about-text">
-      I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.
-      EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS,
-      AND GENERAL FIXES.
+  <!-- ============================= -->
+  <!-- SOCIAL MEDIA ICONS (OPTIONAL) -->
+  <!-- LEAVE href="" TO HIDE ICON -->
+  <!-- ============================= -->
+  <div class="social-row">
+    <a class="social-link" href="">
+      <div class="social-dot"></div>
+    </a>
+    <a class="social-link" href="">
+      <div class="social-dot"></div>
+    </a>
+    <a class="social-link" href="">
+      <div class="social-dot"></div>
+    </a>
+  </div>
+
+  <!-- ============================= -->
+  <!-- ABOUT ME CARD -->
+  <!-- ============================= -->
+  <div class="card card-about">
+    <strong>About Me</strong>
+    I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.
+    EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS,
+    AND GENERAL FIXES.
+  </div>
+
+  <!-- ============================= -->
+  <!-- CONTACT CARD -->
+  <!-- ============================= -->
+  <div class="card card-contact">
+    <strong>Contact</strong>
+
+    <div class="contact-row">
+      📞 1-876-000-0000
+    </div>
+
+    <div class="contact-row">
+      ✉️ example@email.com
+    </div>
+
+    <div class="contact-row">
+      💬 WhatsApp Available
     </div>
   </div>
 
-  <!-- CONTACT -->
-  <div class="card">
-    <div class="section-title">Contact</div>
-    <div class="contact-list">
+  <!-- ============================= -->
+  <!-- SKILLS SECTION -->
+  <!-- ============================= -->
+  <div class="skills-title">Skill Areas</div>
 
-      <a class="contact-item" href="tel:+18760000000">
-        <img src="image/pho.png" alt="">
-        <span>1-876-000-0000</span>
-      </a>
-
-      <a class="contact-item" href="mailto:mydomain@gmail.com">
-        <img src="image/mai.png" alt="">
-        <span>mydomain@gmail.com</span>
-      </a>
-
-      <a class="contact-item" href="https://wa.me/18760000000">
-        <img src="image/wha.png" alt="">
-        <span>WhatsApp</span>
-      </a>
-
-    </div>
+  <div class="card skill-card">
+    <strong>Modular System Setup</strong>
+    Assembly and installation of modular furniture and systems.
   </div>
 
-  <!-- SKILL AREAS -->
-  <div class="card">
-    <div class="section-title">Skill Areas</div>
+  <div class="card skill-card">
+    <strong>Furniture Repair</strong>
+    Fixing, reinforcing, and restoring damaged furniture.
+  </div>
 
-    <div class="skill-card">
-      <div class="skill-title">Modular System Setup</div>
-      <div class="skill-text">
-        Assembly and installation of modular furniture, shelving,
-        and storage systems.
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-title">Furniture Repair</div>
-      <div class="skill-text">
-        Structural repairs, reinforcement, and restoration
-        of household furniture.
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-title">Installations</div>
-      <div class="skill-text">
-        Wall mounts, fixtures, fittings, and general installations.
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-title">General Maintenance</div>
-      <div class="skill-text">
-        Minor repairs, adjustments, and preventative maintenance.
-      </div>
-    </div>
-
+  <div class="card skill-card">
+    <strong>General Maintenance</strong>
+    Small repairs, adjustments, and household fixes.
   </div>
 
 </div>
