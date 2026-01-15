@@ -123,6 +123,7 @@ body {
 }
 
 .title {
+  font-family: TEX;
   font-size: 15px;
   letter-spacing: 2px;
   opacity: 0.85;
@@ -170,6 +171,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .contact-icon img {
@@ -199,7 +201,7 @@ body {
 }
 
 /* ======================================================
-   PAST WORK (ALWAYS VISIBLE)
+   PAST WORK (TEXT FALLBACK)
    ====================================================== */
 .work-grid {
   display: grid;
@@ -208,7 +210,6 @@ body {
   margin-top: 10px;
 }
 
-/* Hide thumbnails unless href exists */
 .work-item {
   display: none;
   border-radius: 12px;
@@ -223,13 +224,17 @@ body {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  display: block;
 }
 
-/* Placeholder text */
-.no-work {
+.no-work-text {
   font-size: 14px;
   opacity: 0.75;
   margin-top: 6px;
+}
+
+.past-work:has(.work-item:not([href=""])) .no-work-text {
+  display: none;
 }
 
 /* ======================================================
@@ -269,6 +274,7 @@ body {
    ====================================================== */
 .footer {
   margin-top: 24px;
+  padding: 16px 0 6px;
   text-align: center;
   font-size: 12px;
   opacity: 0.85;
@@ -289,15 +295,14 @@ body {
 
 <div class="page">
 
-  <!-- HERO -->
+  <!-- HERO IMAGE -->
   <div class="card hero-image">
-    <img src="image/prof.png">
-
+    <img src="image/prof.png" alt="Profile">
     <div class="social-row">
       <a class="social-link" href="">
         <div class="social-dot"><img src="image/ig.png"></div>
       </a>
-      <a class="social-link" href="">
+      <a class="social-link" href="a">
         <div class="social-dot"><img src="image/tk.png"></div>
       </a>
       <a class="social-link" href="">
@@ -306,7 +311,7 @@ body {
     </div>
   </div>
 
-  <!-- NAME -->
+  <!-- NAME + TITLE -->
   <div class="card identity">
     <div class="name">AEON KING</div>
     <div class="title">HANDYMAN</div>
@@ -316,8 +321,9 @@ body {
   <div class="card">
     <div class="section-title">About Me</div>
     <div class="about-text">
-      Reliable handyman services including furniture, installations,
-      modular systems, and general maintenance.
+      I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.
+      EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS,
+      AND GENERAL FIXES.
     </div>
   </div>
 
@@ -329,24 +335,48 @@ body {
         <div class="contact-icon"><img src="image/pho.png"></div>
         <span>1-876-000-0000</span>
       </a>
+      <a class="contact-item" href="mailto:mydomain@gmail.com">
+        <div class="contact-icon"><img src="image/mai.png"></div>
+        <span>mydomain@gmail.com</span>
+      </a>
+      <a class="contact-item" href="https://wa.me/18760000000">
+        <div class="contact-icon"><img src="image/wha.png"></div>
+        <span>WhatsApp</span>
+      </a>
     </div>
   </div>
 
   <!-- SKILLS -->
   <div class="card">
     <div class="section-title">Skill Areas</div>
+
+    <div class="skill-card">
+      <div class="skill-title">Modular System Setup</div>
+      <div class="skill-text">Assembly and installation of modular furniture.</div>
+    </div>
+
     <div class="skill-card">
       <div class="skill-title">Furniture Repair</div>
       <div class="skill-text">Structural repairs and restoration.</div>
     </div>
+
+    <div class="skill-card">
+      <div class="skill-title">Installations</div>
+      <div class="skill-text">Wall mounts, fixtures, and fittings.</div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-title">General Maintenance</div>
+      <div class="skill-text">Minor repairs and preventative maintenance.</div>
+    </div>
   </div>
 
   <!-- PAST WORK -->
-  <div class="card">
+  <div class="card past-work">
     <div class="section-title">Past Work</div>
 
-    <div class="no-work">
-      No images available yet. Past projects will be added here.
+    <div class="no-work-text">
+      No images available yet. Past projects will appear here.
     </div>
 
     <div class="work-grid">
@@ -365,6 +395,12 @@ body {
     <a href="#">Get your own page</a>
   </footer>
 
+</div>
+
+<!-- LIGHTBOX SAMPLE -->
+<div id="work1" class="lightbox">
+  <a href="#" class="close">×</a>
+  <img src="image/work1.jpg">
 </div>
 
 </body>
