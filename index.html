@@ -78,7 +78,6 @@ body {
   display: block;
 }
 
-/* Social overlay on hero */
 .social-row {
   position: absolute;
   bottom: 10px;
@@ -87,17 +86,14 @@ body {
   gap: 8px;
 }
 
-/* Hide all social links by default */
 .social-link {
   display: none;
 }
 
-/* Show only when href is NOT empty */
 .social-link:not([href=""]) {
   display: inline-flex;
 }
 
-/* Icon circle */
 .social-dot {
   width: 36px;
   height: 36px;
@@ -127,7 +123,6 @@ body {
 }
 
 .title {
-  font-family: TEX;
   font-size: 15px;
   letter-spacing: 2px;
   opacity: 0.85;
@@ -175,7 +170,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 .contact-icon img {
@@ -205,22 +199,16 @@ body {
 }
 
 /* ======================================================
-   PAST WORK (OPTIONAL)
+   PAST WORK (ALWAYS VISIBLE)
    ====================================================== */
-.past-work {
-  display: none;
-}
-
-.past-work:has(.work-item:not([href=""])) {
-  display: block;
-}
-
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+  margin-top: 10px;
 }
 
+/* Hide thumbnails unless href exists */
 .work-item {
   display: none;
   border-radius: 12px;
@@ -235,7 +223,13 @@ body {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  display: block;
+}
+
+/* Placeholder text */
+.no-work {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-top: 6px;
 }
 
 /* ======================================================
@@ -275,7 +269,6 @@ body {
    ====================================================== */
 .footer {
   margin-top: 24px;
-  padding: 16px 0 6px;
   text-align: center;
   font-size: 12px;
   opacity: 0.85;
@@ -296,16 +289,15 @@ body {
 
 <div class="page">
 
-  <!-- ================= HERO IMAGE ================= -->
+  <!-- HERO -->
   <div class="card hero-image">
-    <img src="image/prof.png" alt="Profile">
+    <img src="image/prof.png">
 
-    <!-- SOCIAL MEDIA OVERLAY -->
     <div class="social-row">
       <a class="social-link" href="">
         <div class="social-dot"><img src="image/ig.png"></div>
       </a>
-      <a class="social-link" href="a">
+      <a class="social-link" href="">
         <div class="social-dot"><img src="image/tk.png"></div>
       </a>
       <a class="social-link" href="">
@@ -314,83 +306,65 @@ body {
     </div>
   </div>
 
-  <!-- ================= NAME + TITLE ================= -->
+  <!-- NAME -->
   <div class="card identity">
     <div class="name">AEON KING</div>
     <div class="title">HANDYMAN</div>
   </div>
 
-  <!-- ================= ABOUT ================= -->
+  <!-- ABOUT -->
   <div class="card">
     <div class="section-title">About Me</div>
     <div class="about-text">
-      I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.
-      EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS,
-      AND GENERAL FIXES.
+      Reliable handyman services including furniture, installations,
+      modular systems, and general maintenance.
     </div>
   </div>
 
-  <!-- ================= CONTACT ================= -->
+  <!-- CONTACT -->
   <div class="card">
     <div class="section-title">Contact</div>
-
     <div class="contact-list">
       <a class="contact-item" href="tel:+18760000000">
         <div class="contact-icon"><img src="image/pho.png"></div>
         <span>1-876-000-0000</span>
       </a>
-
-      <a class="contact-item" href="mailto:mydomain@gmail.com">
-        <div class="contact-icon"><img src="image/mai.png"></div>
-        <span>mydomain@gmail.com</span>
-      </a>
-
-      <a class="contact-item" href="https://wa.me/18760000000">
-        <div class="contact-icon"><img src="image/wha.png"></div>
-        <span>WhatsApp</span>
-      </a>
     </div>
   </div>
 
-  <!-- ================= SKILLS ================= -->
+  <!-- SKILLS -->
   <div class="card">
     <div class="section-title">Skill Areas</div>
-
-    <div class="skill-card">
-      <div class="skill-title">Modular System Setup</div>
-      <div class="skill-text">Assembly and installation of modular furniture.</div>
-    </div>
-
     <div class="skill-card">
       <div class="skill-title">Furniture Repair</div>
       <div class="skill-text">Structural repairs and restoration.</div>
     </div>
   </div>
 
-  <!-- ================= PAST WORK ================= -->
-  <div class="card past-work">
+  <!-- PAST WORK -->
+  <div class="card">
     <div class="section-title">Past Work</div>
 
+    <div class="no-work">
+      No images available yet. Past projects will be added here.
+    </div>
+
     <div class="work-grid">
-      <a class="work-item" href="#work1">
+      <a class="work-item" href="">
         <img src="">
       </a>
-      <a class="work-item" href="image/prof.png"></a>
+      <a class="work-item" href="">
+        <img src="">
+      </a>
     </div>
   </div>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer class="footer">
     Created by <strong>Comluk Solutions</strong>
     <a href="#">Get your own page</a>
   </footer>
 
-</div>
-
-<!-- LIGHTBOX -->
-<div id="work1" class="lightbox">
-  <a href="#" class="close">×</a>
-  <img src="image/prof.png">
 </div>
 
 </body>
