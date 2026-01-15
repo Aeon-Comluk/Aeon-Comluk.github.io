@@ -29,7 +29,6 @@
 
 /* ======================================================
    PAGE BACKGROUND (GRADIENT CONTROL)
-   Adjust only percentages here
    ====================================================== */
 body {
   font-family: TEX, Arial, sans-serif;
@@ -37,8 +36,8 @@ body {
   background: linear-gradient(
     180deg,
     #ffffff 0%,
-    #ffffff 20%,   /* TOP WHITE ZONE */
-    #f7b731 100%   /* ORANGE BASE */
+    #ffffff 20%,
+    #f7b731 100%
   );
   color: #111;
 }
@@ -64,11 +63,12 @@ body {
 }
 
 /* ======================================================
-   HERO IMAGE
+   HERO IMAGE + SOCIAL OVERLAY
    ====================================================== */
 .hero-image {
   padding: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .hero-image img {
@@ -78,15 +78,13 @@ body {
   display: block;
 }
 
-/* ======================================================
-   SOCIAL MEDIA ROW
-   - Icon shows ONLY if href is not empty
-   ====================================================== */
+/* Social overlay on hero */
 .social-row {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  padding: 10px 12px;
+  gap: 8px;
 }
 
 /* Hide all social links by default */
@@ -94,7 +92,7 @@ body {
   display: none;
 }
 
-/* Show only when href has content */
+/* Show only when href is NOT empty */
 .social-link:not([href=""]) {
   display: inline-flex;
 }
@@ -104,7 +102,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #f7b731; /* page base color */
+  background: #f7b731;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,12 +167,11 @@ body {
   font-size: 15px;
 }
 
-/* Contact icon circle */
 .contact-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #f7b731; /* page base color */
+  background: #f7b731;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,6 +203,92 @@ body {
   font-size: 14px;
   line-height: 1.4;
 }
+
+/* ======================================================
+   PAST WORK (OPTIONAL)
+   ====================================================== */
+.past-work {
+  display: none;
+}
+
+.past-work:has(.work-item:not([href=""])) {
+  display: block;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.work-item {
+  display: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.work-item:not([href=""]) {
+  display: block;
+}
+
+.work-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* ======================================================
+   LIGHTBOX
+   ====================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 96%;
+  max-height: 92%;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: HED;
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ======================================================
+   FOOTER
+   ====================================================== */
+.footer {
+  margin-top: 24px;
+  padding: 16px 0 6px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.footer a {
+  display: block;
+  font-family: HED;
+  font-size: 13px;
+  text-decoration: none;
+  color: #111;
+  margin-top: 4px;
+}
 </style>
 </head>
 
@@ -216,19 +299,19 @@ body {
   <!-- ================= HERO IMAGE ================= -->
   <div class="card hero-image">
     <img src="image/prof.png" alt="Profile">
-  </div>
 
-  <!-- ================= SOCIAL MEDIA ================= -->
-  <div class="social-row">
-    <a class="social-link" href="">
-      <div class="social-dot"><img src="image/ig.png" alt=""></div>
-    </a>
-    <a class="social-link" href="a">
-      <div class="social-dot"><img src="image/tk.png" alt=""></div>
-    </a>
-    <a class="social-link" href="">
-      <div class="social-dot"><img src="image/li.png" alt=""></div>
-    </a>
+    <!-- SOCIAL MEDIA OVERLAY -->
+    <div class="social-row">
+      <a class="social-link" href="">
+        <div class="social-dot"><img src="image/ig.png"></div>
+      </a>
+      <a class="social-link" href="a">
+        <div class="social-dot"><img src="image/tk.png"></div>
+      </a>
+      <a class="social-link" href="">
+        <div class="social-dot"><img src="image/li.png"></div>
+      </a>
+    </div>
   </div>
 
   <!-- ================= NAME + TITLE ================= -->
@@ -252,28 +335,20 @@ body {
     <div class="section-title">Contact</div>
 
     <div class="contact-list">
-
       <a class="contact-item" href="tel:+18760000000">
-        <div class="contact-icon">
-          <img src="image/pho.png" alt="">
-        </div>
+        <div class="contact-icon"><img src="image/pho.png"></div>
         <span>1-876-000-0000</span>
       </a>
 
       <a class="contact-item" href="mailto:mydomain@gmail.com">
-        <div class="contact-icon">
-          <img src="image/mai.png" alt="">
-        </div>
+        <div class="contact-icon"><img src="image/mai.png"></div>
         <span>mydomain@gmail.com</span>
       </a>
 
       <a class="contact-item" href="https://wa.me/18760000000">
-        <div class="contact-icon">
-          <img src="image/wha.png" alt="">
-        </div>
+        <div class="contact-icon"><img src="image/wha.png"></div>
         <span>WhatsApp</span>
       </a>
-
     </div>
   </div>
 
@@ -283,36 +358,39 @@ body {
 
     <div class="skill-card">
       <div class="skill-title">Modular System Setup</div>
-      <div class="skill-text">
-        Assembly and installation of modular furniture, shelving,
-        and storage systems.
-      </div>
+      <div class="skill-text">Assembly and installation of modular furniture.</div>
     </div>
 
     <div class="skill-card">
       <div class="skill-title">Furniture Repair</div>
-      <div class="skill-text">
-        Structural repairs, reinforcement, and restoration
-        of household furniture.
-      </div>
+      <div class="skill-text">Structural repairs and restoration.</div>
     </div>
-
-    <div class="skill-card">
-      <div class="skill-title">Installations</div>
-      <div class="skill-text">
-        Wall mounts, fixtures, fittings, and general installations.
-      </div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-title">General Maintenance</div>
-      <div class="skill-text">
-        Minor repairs, adjustments, and preventative maintenance.
-      </div>
-    </div>
-
   </div>
 
+  <!-- ================= PAST WORK ================= -->
+  <div class="card past-work">
+    <div class="section-title">Past Work</div>
+
+    <div class="work-grid">
+      <a class="work-item" href="#work1">
+        <img src="image/work1.jpg">
+      </a>
+      <a class="work-item" href=""></a>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    Created by <strong>Comluk Solutions</strong>
+    <a href="#">Get your own page</a>
+  </footer>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div id="work1" class="lightbox">
+  <a href="#" class="close">×</a>
+  <img src="image/work1.jpg">
 </div>
 
 </body>
