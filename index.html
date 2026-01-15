@@ -11,7 +11,6 @@
   font-family: 'HED';
   src: url('image/hed.ttf') format('truetype');
 }
-
 @font-face {
   font-family: 'TEX';
   src: url('image/tex.otf') format('opentype');
@@ -25,366 +24,225 @@
 }
 
 body {
-  font-family: TEX, Arial, Helvetica, sans-serif;
-  background: #efefef;
+  font-family: TEX, Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #f7b731 100%
+  );
   color: #111;
 }
 
-/* ===== COLORS ===== */
-:root {
-  --yellow: #f7b731;
-  --yellow-dark: #e58e26;
-  --white: #ffffff;
-}
-
-/* ===== HERO ===== */
-.hero {
-  background: url("image/bk1.jpg") center / cover no-repeat;
-  padding: 16px 12px 20px;
-}
-
-.hero-card {
-  background: rgba(0,0,0,0.28);
-  border-radius: 16px;
-  padding: 16px;
-  max-width: 980px;
+/* ===== PAGE WRAPPER ===== */
+.page {
+  max-width: 420px;
   margin: 0 auto;
+  padding: 16px;
 }
 
-/* ---------- ZONE 1: IDENTITY (STACKED) ---------- */
-.identity {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
+/* ===== CARDS ===== */
+.card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
-.profile-wrap {
-  display: flex;
-  justify-content: center;
+/* ===== HERO IMAGE ===== */
+.hero-image {
+  padding: 0;
+  overflow: hidden;
 }
 
-.profile-wrap img {
-  width: 160px;
-  max-width: 60vw;
+.hero-image img {
+  width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 10px;
-  border: 5px solid var(--yellow);
+  display: block;
 }
 
-.identity-info {
-  color: var(--white);
+/* ===== SOCIAL PLACEHOLDERS ===== */
+.social-row {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 10px 12px;
+}
+
+.social-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #111;
+  opacity: 0.85;
+}
+
+/* ===== NAME + TITLE ===== */
+.identity {
+  text-align: center;
 }
 
 .name {
   font-family: HED;
-  font-size: clamp(22px, 6vw, 34px);
-  letter-spacing: 3px;
-  line-height: 1.05;
-  word-break: break-word;
+  font-size: 34px;
+  margin-bottom: 4px;
 }
 
-.role {
-  margin-top: 4px;
+.title {
   font-family: TEX;
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: var(--yellow);
-}
-
-/* ===== CONTACT TICKER ===== */
-.contact-ticker {
-  margin-top: 14px;
-  overflow: hidden;
-  width: 100%;
-}
-
-.ticker-track {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  gap: 14px;
-  animation: ticker-scroll 18s linear infinite;
-}
-
-.ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: TEX;
-  font-size: 13px;
-  color: var(--white);
-}
-
-.ticker-item img {
-  width: 16px;
-  height: 16px;
-  flex: 0 0 auto;
-}
-
-.ticker-sep {
-  font-family: TEX;
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-}
-
-.ticker-spacer {
-  width: 40px;
-  flex: 0 0 auto;
-}
-
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-  .ticker-item {
-  text-decoration: none;
-  color: var(--white);
-}
-
-/* ---------- ZONE 3: APPOINTMENTS ---------- */
-.appointment-zone {
-  margin-top: 14px;
-  text-align: center;
-}
-
-.appointments {
-  font-family: HED;
-  font-size: 18px;
-  letter-spacing: 3px;
-  color: var(--yellow);
+  font-size: 15px;
+  letter-spacing: 2px;
+  opacity: 0.85;
 }
 
 /* ===== ABOUT ===== */
-.about-bar {
-  background: linear-gradient(180deg, #BA8E23  0%, #BA8E23  5%, var(--yellow) 100%);
-  padding: 18px 16px;
-}
-
-.about-inner {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.about-title {
+.section-title {
   font-family: HED;
-  font-size: 26px;
-  letter-spacing: 2px;
-  margin-bottom: 6px;
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
 .about-text {
-  font-family: TEX;
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
-/* ===== PROJECTS ===== */
-.projects {
-  background: #ffffff;
-  padding: 20px 16px 26px;
-}
-
-.projects-inner {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.projects-title {
-  font-family: HED;
-  font-size: 21px;
-  letter-spacing: 1px;
-}
-
-.divider {
-  height: 5px;
-  background: #111;
-  margin: 8px 0 16px;
-}
-
-.grid {
+/* ===== CONTACT ===== */
+.contact-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  row-gap: 10px;
 }
 
-.project {
-  text-align: center;
-}
-
-.thumb {
-  display: block;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.thumb img {
-  width: 100%;
-  display: block;
-}
-
-.pname {
-  margin-top: 6px;
-  font-family: TEX;
-  font-size: 13px;
-}
-
-/* ===== LIGHTBOX ===== */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.lightbox:target {
+.contact-item {
   display: flex;
-}
-
-.lightbox img {
-  max-width: 96%;
-  max-height: 92%;
-}
-
-.close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-family: HED;
-  font-size: 30px;
-  color: #fff;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
+  color: #111;
+  font-size: 15px;
+}
+
+.contact-item img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ===== SKILLS ===== */
+.skill-card {
+  background: rgba(247,183,49,0.15);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.skill-title {
+  font-family: HED;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.skill-text {
+  font-size: 14px;
+  line-height: 1.4;
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <div class="hero-card">
+<div class="page">
 
-    <!-- ZONE 1 -->
-   <div class="identity">
-  <div class="profile-wrap">
+  <!-- HERO IMAGE -->
+  <div class="card hero-image">
     <img src="image/prof.png" alt="Profile">
   </div>
 
-  <div class="identity-info">
+  <!-- SOCIAL PLACEHOLDERS -->
+  <div class="social-row">
+    <div class="social-dot"></div>
+    <div class="social-dot"></div>
+    <div class="social-dot"></div>
+  </div>
+
+  <!-- NAME + TITLE -->
+  <div class="card identity">
     <div class="name">AEON KING</div>
-    <div class="role">HANDYMAN</div>
+    <div class="title">HANDYMAN</div>
   </div>
-</div>
 
-    <!-- ZONE 2: CONTACT TICKER -->
-<div class="contact-ticker">
-  <div class="ticker-track">
-
-    <a class="ticker-item" href="mailto:mydomain@gmail.com">
-      <img src="image/mai.png" alt="">
-      <span>mydomain@gmail.com</span>
-    </a>
-
-    <span class="ticker-sep">|</span>
-
-    <a class="ticker-item" href="tel:+1876xxxxxxx">
-      <img src="image/pho.png" alt="">
-      <span>1-876-xxx-xxxx</span>
-    </a>
-
-    <span class="ticker-sep">|</span>
-
-    <a class="ticker-item" href="https://wa.me/1876xxxxxxx" target="_blank" rel="noopener">
-      <img src="image/wha.png" alt="">
-      <span>WhatsApp</span>
-    </a>
-
-    <span class="ticker-sep">|</span>
-
-    <div class="ticker-item">
-      <img src="image/loc.png" alt="">
-      <span>Kingston &amp; St. Andrew</span>
-    </div>
-
-    <span class="ticker-spacer"></span>
-
-
-
-    <a class="ticker-item" href="mailto:mydomain@gmail.com">
-      <img src="image/mai.png" alt="">
-      <span>mydomain@gmail.com</span>
-    </a>
-
-    <span class="ticker-sep">|</span>
-
-    <a class="ticker-item" href="tel:+1876xxxxxxx">
-      <img src="image/pho.png" alt="">
-      <span>1-876-xxx-xxxx</span>
-    </a>
-
-    <span class="ticker-sep">|</span>
-
-    <a class="ticker-item" href="https://wa.me/1876xxxxxxx" target="_blank" rel="noopener">
-      <img src="image/wha.png" alt="">
-      <span>WhatsApp</span>
-    </a>
-
-    <span class="ticker-sep">|</span>
-
-    <div class="ticker-item">
-      <img src="image/loc.png" alt="">
-      <span>Kingston &amp; St. Andrew</span>
-    </div>
-
-    <span class="ticker-spacer"></span>
-
-  </div>
-</div>
-    
-    <!-- ZONE 3 -->
-    <div class="appointment-zone">
-      <div class="appointments">APPOINTMENTS ONLY</div>
-    </div>
-
-  </div>
-</section>
-
-<section class="about-bar">
-  <div class="about-inner">
-    <div class="about-title">ABOUT ME</div>
+  <!-- ABOUT -->
+  <div class="card">
+    <div class="section-title">About Me</div>
     <div class="about-text">
-      I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES. EXPERIENCED WITH
-      FURNITURE, INSTALLATIONS, MODULAR SYSTEMS, AND GENERAL FIXES.
+      I PROVIDE RELIABLE HANDYMAN, MAINTENANCE, AND REPAIR SERVICES.
+      EXPERIENCED WITH FURNITURE, INSTALLATIONS, MODULAR SYSTEMS,
+      AND GENERAL FIXES.
     </div>
   </div>
-</section>
 
-<section class="projects">
-  <div class="projects-inner">
-    <div class="projects-title">PAST PROJECTS</div>
-    <div class="divider"></div>
+  <!-- CONTACT -->
+  <div class="card">
+    <div class="section-title">Contact</div>
+    <div class="contact-list">
 
-    <div class="grid">
-      <div class="project"><a class="thumb" href="#img1"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
-      <div class="project"><a class="thumb" href="#img2"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
-      <div class="project"><a class="thumb" href="#img3"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
-      <div class="project"><a class="thumb" href="#img4"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
-      <div class="project"><a class="thumb" href="#img5"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
-      <div class="project"><a class="thumb" href="#img6"><img src="image/sample.jpg"></a><div class="pname">PROJECT NAME</div></div>
+      <a class="contact-item" href="tel:+18760000000">
+        <img src="image/pho.png" alt="">
+        <span>1-876-000-0000</span>
+      </a>
+
+      <a class="contact-item" href="mailto:mydomain@gmail.com">
+        <img src="image/mai.png" alt="">
+        <span>mydomain@gmail.com</span>
+      </a>
+
+      <a class="contact-item" href="https://wa.me/18760000000">
+        <img src="image/wha.png" alt="">
+        <span>WhatsApp</span>
+      </a>
+
     </div>
   </div>
-</section>
 
-<div id="img1" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
-<div id="img2" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
-<div id="img3" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
-<div id="img4" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
-<div id="img5" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
-<div id="img6" class="lightbox"><a href="#" class="close">×</a><img src="image/sample.jpg"></div>
+  <!-- SKILL AREAS -->
+  <div class="card">
+    <div class="section-title">Skill Areas</div>
+
+    <div class="skill-card">
+      <div class="skill-title">Modular System Setup</div>
+      <div class="skill-text">
+        Assembly and installation of modular furniture, shelving,
+        and storage systems.
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-title">Furniture Repair</div>
+      <div class="skill-text">
+        Structural repairs, reinforcement, and restoration
+        of household furniture.
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-title">Installations</div>
+      <div class="skill-text">
+        Wall mounts, fixtures, fittings, and general installations.
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-title">General Maintenance</div>
+      <div class="skill-text">
+        Minor repairs, adjustments, and preventative maintenance.
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
 </body>
 </html>
